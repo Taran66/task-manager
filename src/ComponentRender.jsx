@@ -13,9 +13,9 @@ const ComponentRender = () => {
   };
 
   return (
-    <div className='flex h-screen'>
+    <div className='flex h-screen  '>
       {/* Buttons to toggle between components */}
-      <div className='flex flex-col bg-black text-white'>
+      <div className='flex flex-col bg-black text-white gap-5 w-1/5'>
       <button className={`${activeComponent === 'A' ? 'bg-gray-200' : 'bg-black'}`} onClick={() => handleButtonClick('A')}>
         Show Component A
       </button>
@@ -28,7 +28,7 @@ const ComponentRender = () => {
       </div>
 
       {/* Conditional rendering based on active component */}
-      <div >
+      <div className='bg-red-900 w-full'>
         {activeComponent === 'A' && <ComponentA />}
         {activeComponent === 'B' && <ComponentB />}
         {activeComponent === 'C' && <ComponentC />}
