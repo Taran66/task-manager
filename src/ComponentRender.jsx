@@ -28,7 +28,7 @@ const ComponentRender = () => {
       </div>
 
       {/* Conditional rendering based on active component */}
-      <div className='bg-red-900 w-full'>
+      <div className='w-full'>
         {activeComponent === 'A' && <ComponentA />}
         {activeComponent === 'B' && <ComponentB />}
         {activeComponent === 'C' && <ComponentC />}
