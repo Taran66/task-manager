@@ -1,13 +1,10 @@
 import './App.css'
-import ComponentRender from './ComponentRender'
-
+import ComponentRender2 from './ComponentRender2'
 
 function App() {
-  
-
   return (
     <>
-    <ComponentRender />
+    <ComponentRender2 />
     </>
   )
 }
