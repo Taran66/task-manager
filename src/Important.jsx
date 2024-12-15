@@ -1,9 +1,8 @@
 import { useState } from "react";
 import Layout from "./Layout";
 
-const Important = () => {
+const Important = ({ messages, updateMessages }) => {
   const [message, setMessage] = useState("");
-  const [messages, setMessages] = useState([]);
 
   const handleChange = (e) => {
     setMessage(e.target.value);
@@ -12,10 +11,12 @@ const Important = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (message.trim()){
-      setMessages([...messages, message])
+      const newMessages = [...messages, message];
+      updateMessages(newMessages);
       setMessage("")
     }
   }
+
   return(
     <Layout 
       title={"Important"}
@@ -23,11 +24,9 @@ const Important = () => {
       inputValue={message}
       onChange={handleChange}
       onSubmit={handleSubmit}
-    >
-
-    </Layout>
+      backgroundImg={"./assets/important-bg.jpg"}
+    />
   )
-
 }
 
 export default Important;

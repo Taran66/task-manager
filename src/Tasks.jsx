@@ -1,9 +1,8 @@
 import { useState } from "react";
 import Layout from "./Layout";
 
-const Tasks = () => {
+const Tasks = ({ messages, updateMessages }) => {
   const [message, setMessage] = useState("");
-  const [messages, setMessages] = useState([]);
 
   const handleChange = (e) => {
     setMessage(e.target.value);
@@ -12,10 +11,12 @@ const Tasks = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (message.trim()){
-      setMessages([...messages, message])
+      const newMessages = [...messages, message];
+      updateMessages(newMessages);
       setMessage("")
     }
   }
+
   return(
     <Layout 
       title={"Tasks"}
@@ -23,11 +24,9 @@ const Tasks = () => {
       inputValue={message}
       onChange={handleChange}
       onSubmit={handleSubmit}
-    >
-
-    </Layout>
+      backgroundImg={"./assets/tasks-bg.jpg"}
+    />
   )
-
 }
 
 export default Tasks;

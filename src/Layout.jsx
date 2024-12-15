@@ -1,7 +1,7 @@
 
 import DropdownMenu from "./DropdownMenu"
 
-const Layout = ({ title, messages, onSubmit, inputValue, onChange }) => {
+const Layout = ({ title, messages, onSubmit, inputValue, onChange, backgroundImg }) => {
     const today = new Date()
     const formattedDate = today.toLocaleDateString('en-US',{
       weekday: "long",
@@ -13,7 +13,7 @@ const Layout = ({ title, messages, onSubmit, inputValue, onChange }) => {
     <div
     className="flex justify-center"
     style={{
-      backgroundImage: "url('./assets/bg-image.jpg')",
+      backgroundImage: `url(${backgroundImg})`,
       backgroundSize: "cover", // Makes the image cover the entire div
       backgroundPosition: "center", // Centers the image
       backgroundRepeat: "no-repeat", // Prevents the image from repeating
