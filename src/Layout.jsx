@@ -1,5 +1,6 @@
 
 import DropdownMenu from "./DropdownMenu"
+import { FaStar } from "react-icons/fa";
 
 const Layout = ({ title, messages, onSubmit, inputValue, onChange, backgroundImg }) => {
     const today = new Date()
@@ -10,7 +11,7 @@ const Layout = ({ title, messages, onSubmit, inputValue, onChange, backgroundImg
       day: "numeric"
     })
     
-  return (
+  return (  
     <div
     className="flex justify-center"
     style={{
@@ -34,14 +35,17 @@ const Layout = ({ title, messages, onSubmit, inputValue, onChange, backgroundImg
         {messages.map((msg, index) => (
               <div 
                 key={index} 
-                className="flex flex-col p-5 w-full text-white bg-white/10 rounded-lg backdrop-blur-md border border-white/20 placeholder-white/70 shadow-lg"
+                className="flex flex-row justify-between items-center p-5 w-full text-white bg-white/10 rounded-lg backdrop-blur-md border border-white/20 placeholder-white/70 shadow-lg"
               >
+                <div>
                 <div>{msg.text}</div>
                 {msg.hasTime && (
                   <div className="text-sm text-gray-300">
                     Reminder: {msg.timestamp.toLocaleString()}
                   </div>
                 )}
+                </div>
+                <FaStar />
               </div>
             ))}
         </div>
