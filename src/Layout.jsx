@@ -9,6 +9,7 @@ const Layout = ({ title, messages, onSubmit, inputValue, onChange, backgroundImg
       month: "long",
       day: "numeric"
     })
+    
   return (
     <div
     className="flex justify-center"
@@ -30,11 +31,19 @@ const Layout = ({ title, messages, onSubmit, inputValue, onChange, backgroundImg
         </div>
         <div className="flex flex-col gap-5 h-full justify-between  overflow-hidden">
         <div className="flex flex-col gap-4 overflow-y-scroll">
-          {messages.map((msg, index) => (
-            <div className="flex items-center p-5 w-full h-10 text-white  bg-white/10 rounded-lg backdrop-blur-md border border-white/20 placeholder-white/70 shadow-lg outline-none">
-              {msg}
-            </div>
-          ))}
+        {messages.map((msg, index) => (
+              <div 
+                key={index} 
+                className="flex flex-col p-5 w-full text-white bg-white/10 rounded-lg backdrop-blur-md border border-white/20 placeholder-white/70 shadow-lg"
+              >
+                <div>{msg.text}</div>
+                {msg.hasTime && (
+                  <div className="text-sm text-gray-300">
+                    Reminder: {msg.timestamp.toLocaleString()}
+                  </div>
+                )}
+              </div>
+            ))}
         </div>
         <form onSubmit={onSubmit} >
         <input 
