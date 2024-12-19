@@ -2,9 +2,6 @@ import { useState } from "react";
 import Layout from "./Layout";
 import * as chrono from 'chrono-node';
 
-
-
-
 const MyDay = ({ messages, updateMessages }) => {
   const [message, setMessage] = useState("");
 

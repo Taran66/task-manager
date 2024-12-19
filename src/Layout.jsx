@@ -1,8 +1,11 @@
 
+import { useState } from "react";
 import DropdownMenu from "./DropdownMenu"
 import { FaStar } from "react-icons/fa";
 
 const Layout = ({ title, messages, onSubmit, inputValue, onChange, backgroundImg }) => {
+
+    const [isToggled, setIsToggled] = useState(false)
     const today = new Date()
     const formattedDate = today.toLocaleDateString('en-US',{
       weekday: "long",
@@ -16,10 +19,10 @@ const Layout = ({ title, messages, onSubmit, inputValue, onChange, backgroundImg
     className="flex justify-center"
     style={{
       backgroundImage: `url(${backgroundImg})`,
-      backgroundSize: "cover", // Makes the image cover the entire div
-      backgroundPosition: "center", // Centers the image
-      backgroundRepeat: "no-repeat", // Prevents the image from repeating
-      minHeight: "100vh", // Ensures it covers the full viewport height
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      minHeight: "100vh",
     }}
     >
       <div className="flex flex-col justify-between h-screen w-11/12 gap-10">
@@ -45,13 +48,18 @@ const Layout = ({ title, messages, onSubmit, inputValue, onChange, backgroundImg
                   </div>
                 )}
                 </div>
-                <FaStar />
+                <button 
+                onClick={() => setIsToggled(!isToggled)}
+                >
+                <FaStar 
+                  className={`${isToggled ? "text-yellow-400" : "text-gray-500"}`}
+                />
+                </button>
               </div>
             ))}
         </div>
         <form onSubmit={onSubmit} >
         <input 
-        // className="w-full outline-none p-2 bg-gray-500"
         placeholder='Try typing "Pay bill by 10pm"'
         className="p-4 w-full  text-white bg-white/10 rounded-xl backdrop-blur-md border border-white/20 placeholder-white/70 shadow-lg outline-none mb-10 "
         value={inputValue}
